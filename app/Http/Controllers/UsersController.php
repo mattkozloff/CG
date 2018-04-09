@@ -46,4 +46,32 @@ class UsersController extends Controller
         return view('users.edit')->with('user', $user);
     }
 
+    public function update(Request $request) 
+    {
+       //print_r($_POST); 
+       // dd($request->all()); 
+       //dd($request->hasFile('imageFile'));
+       // dd($request['imageFile']);
+        $user = User::find($request['id']);
+        
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->imageFileName = $request['imageFileName'];
+            
+            $user->updated_at = Carbon::now()->toDateTimeString();
+            $user->save();
+            return redirect('users');
+    }
+
+    /**
+     * Display a page to delete a new user
+     *
+     */
+    public function destroy($id) 
+    {
+        User::destroy($id);
+
+        $users = User::all();
+        return view('users.index', compact('users'));
+    }
 }
