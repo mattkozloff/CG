@@ -12,6 +12,20 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="gardenName" class="col-md-4 col-form-label text-md-right">{{ __('Garden Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="gardenName" type="text" class="form-control{{ $errors->has('Garder Name') ? ' is-invalid' : '' }}" name="gardenName" value="{{ old('gardenName') }}" required autofocus>
+
+                                @if ($errors->has('gardenName'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('gardenName') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">

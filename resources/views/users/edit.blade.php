@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Edit User</div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-headed">Edit Room</div>
 
-                <div class="panel-body">
+                <div class="card-body">
                     <form class="form-horizontal" method="post" action="/users/{{ $user->id }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 

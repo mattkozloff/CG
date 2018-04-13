@@ -21,7 +21,7 @@ class UsersController extends Controller
 
     public function store(Request $request) 
     {
-        //dd($request->all());
+        // dd($request->all());
         $newUser = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -49,7 +49,7 @@ class UsersController extends Controller
     public function update(Request $request) 
     {
        //print_r($_POST); 
-       // dd($request->all()); 
+       //dd($request->all()); 
        //dd($request->hasFile('imageFile'));
        // dd($request['imageFile']);
         $user = User::find($request['id']);

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use DB;
 use App\User;
+use App\System;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -63,7 +65,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //dd($data);
+        System::insert([
+            'created_at' => now(),
+            'name' => $data['gardenName'],
+        ]);
+
+        $lastID = DB::getPdo()->lastInsertId();
+
         return User::create([
+            'systemID' => $lastID,
             'name' => $data['name'],
             'email' => $data['email'],
             'imageFileName' => $data['imageFileName'],
