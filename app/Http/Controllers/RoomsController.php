@@ -10,7 +10,7 @@ class RoomsController extends Controller
 {
     public function index() {
 
-        $rooms = Room::all();
+        $rooms = Room::where('systemID', app('system')->id)->get();
         return view('rooms.index', compact('rooms'));
     }
 

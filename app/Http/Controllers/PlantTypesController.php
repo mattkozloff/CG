@@ -10,7 +10,7 @@ class PlantTypesController extends Controller
 {
     
     public function index() {
-        $planttypes = PlantType::all();
+        $planttypes = PlantType::where('systemID', app('system')->id)->get();
         return view('planttypes.index', compact('planttypes'));
     }
 

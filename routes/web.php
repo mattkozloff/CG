@@ -44,3 +44,10 @@ Route::get('/planttypes/edit/{id}', 'PlanttypesController@edit')->name('planttyp
 Route::post('/planttypes/store', 'PlanttypesController@store')->name('planttypes.store');
 Route::post('/planttypes/{id}', 'PlanttypesController@update')->name('planttypes.update');
 Route::get('/planttypes/destroy/{id}', 'PlanttypesController@destroy')->name('planttypes.destroy');
+
+Route::get('/plants', 'PlantsController@index')->name('plants.index');
+Route::get('/plants/create', 'PlantsController@create')->name('plants.create');
+Route::get('/plants/edit/{id}', 'PlantsController@edit')->name('plants.edit');
+Route::post('/plants/store', 'PlantsController@store')->name('plants.store');
+Route::post('/plants/{id}', 'PlantsController@update')->name('plants.update');
+Route::get('/plants/destroy/{id}', 'PlantsController@destroy')->name('plants.destroy');
