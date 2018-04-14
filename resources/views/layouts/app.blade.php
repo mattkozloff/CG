@@ -44,6 +44,7 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                        <li><a class="nav-link" href="/planttypes">{{ __('Plant Types') }}</a></li>
                         <li><a class="nav-link" href="/rooms">{{ __('Rooms') }}</a></li>
                         <li><a class="nav-link" href="/users">{{ __('Users') }}</a></li>
                         <li><a class="nav-link" href="/about">{{ __('About') }}</a></li>
