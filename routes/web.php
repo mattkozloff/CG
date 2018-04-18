@@ -51,3 +51,7 @@ Route::get('/plants/edit/{id}', 'PlantsController@edit')->name('plants.edit');
 Route::post('/plants/store', 'PlantsController@store')->name('plants.store');
 Route::post('/plants/{id}', 'PlantsController@update')->name('plants.update');
 Route::get('/plants/destroy/{id}', 'PlantsController@destroy')->name('plants.destroy');
+
+
+Route::get('/systems/edit/{id}', 'SystemsController@edit')->name('systems.edit');
+Route::post('/systems/{id}', 'SystemsController@update')->name('systems.update');

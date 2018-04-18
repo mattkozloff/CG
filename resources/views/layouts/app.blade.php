@@ -48,6 +48,7 @@
                         <li><a class="nav-link" href="/planttypes">{{ __('Plant Types') }}</a></li>
                         <li><a class="nav-link" href="/rooms">{{ __('Rooms') }}</a></li>
                         <li><a class="nav-link" href="/users">{{ __('Users') }}</a></li>
+                        <li><a class="nav-link" href="/systems/edit/{{ app('system')->id }}">{{ __('System') }}</a></li>
                         <li><a class="nav-link" href="/about">{{ __('About') }}</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
