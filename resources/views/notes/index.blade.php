@@ -6,9 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    plants <br />
-                    <a href='/plants/create'>Add Plant</a>
-                </div>
+                    Notes <br />
+                    <a href='/notes/{{$entity}}/{{$entityID}}/create'>Add Note for {{ $entity }} {{ $entityName }} ID: {{ $entityID }}</a>
+                </div> 
 
                 <div class="card-body">
                     <table class="table" border='1'>
@@ -16,14 +16,12 @@
                             <td>Name</td>
                             <td>Comments</td>
                             <td></td>
-                            <td></td>
                         </tr>
-                        @foreach($plants as $plant)
+                        @foreach($notes as $note)
                             <tr>
-                                <td>{{ $plant['name'] }}</td>
-                                <td>{{ $plant['comments'] }}</td>
-                                <td><a href='/plants/edit/{{$plant['id']}}'>Edit</a></td>
-                                <td><a href='/notes/plant/{{$plant['id']}}'>Notes</a></td>
+                                <td>{{ $note['comments'] }}</td>
+                                <td>{{ $note['imageFileName'] }}</td>
+                                <td><a href='/notes/edit/{{ $note['entityID'] }}'>Edit</a></td>
                             </tr>
                         @endforeach
                     </table>

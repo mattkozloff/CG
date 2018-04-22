@@ -38,12 +38,12 @@ Route::post('/rooms/store', 'RoomsController@store')->name('rooms.store');
 Route::post('/rooms/{id}', 'RoomsController@update')->name('rooms.update');
 Route::get('/rooms/destroy/{id}', 'RoomsController@destroy')->name('rooms.destroy');
 
-Route::get('/planttypes', 'PlanttypesController@index')->name('planttypes.index');
-Route::get('/planttypes/create', 'PlanttypesController@create')->name('planttypes.create');
-Route::get('/planttypes/edit/{id}', 'PlanttypesController@edit')->name('planttypes.edit');
-Route::post('/planttypes/store', 'PlanttypesController@store')->name('planttypes.store');
-Route::post('/planttypes/{id}', 'PlanttypesController@update')->name('planttypes.update');
-Route::get('/planttypes/destroy/{id}', 'PlanttypesController@destroy')->name('planttypes.destroy');
+Route::get('/planttypes', 'PlantTypesController@index')->name('planttypes.index');
+Route::get('/planttypes/create', 'PlantTypesController@create')->name('planttypes.create');
+Route::get('/planttypes/edit/{id}', 'PlantTypesController@edit')->name('planttypes.edit');
+Route::post('/planttypes/store', 'PlantTypesController@store')->name('planttypes.store');
+Route::post('/planttypes/{id}', 'PlantTypesController@update')->name('planttypes.update');
+Route::get('/planttypes/destroy/{id}', 'PlantTypesController@destroy')->name('planttypes.destroy');
 
 Route::get('/plants', 'PlantsController@index')->name('plants.index');
 Route::get('/plants/create', 'PlantsController@create')->name('plants.create');
@@ -55,3 +55,8 @@ Route::get('/plants/destroy/{id}', 'PlantsController@destroy')->name('plants.des
 
 Route::get('/systems/edit/{id}', 'SystemsController@edit')->name('systems.edit');
 Route::post('/systems/{id}', 'SystemsController@update')->name('systems.update');
+
+Route::get('/notes/{entity}/{entityID}', 'NotesController@index')->name('notes');
+Route::get('/notes/{entity}/{entityID}/create', 'NotesController@create')->name('notes.create');
+Route::post('/notes/store', 'NotesController@store')->name('notes.store');
+
