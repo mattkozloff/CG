@@ -12,17 +12,17 @@
 
                 <div class="card-body">
                     <table class="table" border='1'>
-                        <tr>
-                            <td>Name</td>
-                            <td>Comments</td>
+                        <!--<tr>
+                            <td>Note</td>
                             <td></td>
-                        </tr>
+                            <td></td>
+                        </tr>-->
                         @foreach($notes as $note)
                             <tr>
                                 <td>{{ $note['comments'] }}</td>
                                 <td>{{ $note['imageFileName'] }}</td>
-                                <td><a href='/notes/edit/{{ $note['entityID'] }}'>Edit</a></td>
-                            </tr>
+                                <td><a href='/note/edit/{{ $note['id'] }}'>Edit</a></td>
+                                <td><a class='delete' href='/note/{{$entity}}/{{$entityID}}/destroy/{{ $note['id'] }}'>Delete
                         @endforeach
                     </table>
                 </div>

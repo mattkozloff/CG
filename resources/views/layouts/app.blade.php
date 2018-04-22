@@ -77,5 +77,18 @@
             @yield('content')
         </main>
     </div>
+    @yield('javascripts')
+
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready( function() {
+            $('.delete').on('click', function(e) {
+                if(!confirm("Are you sure you want to delete this?"))
+                    e.preventDefault();
+            });
+        });
+        
+    </script>
 </body>
 </html>

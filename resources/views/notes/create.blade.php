@@ -7,8 +7,6 @@
             <div class="card"> 
                 <div class="card-header">{{ __('Add Note') }} for {{ $entityDetail['entity'] }} {{ $entityDetail['entityName'] }} ID: {{ $entityDetail['entityID'] }}</div>
 
-
-
                 <div class="card-body">
                     <form class="form-horizontal" method="POST" action="{{ route('notes.store') }}">
                         @csrf

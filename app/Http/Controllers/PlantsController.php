@@ -11,6 +11,7 @@ class PlantsController extends Controller
 {
     public function index() {
         $plants = Plant::where('systemID', app('system')->id)->get();
+        
         return view('plants.index', compact('plants'));
     }
 

@@ -13,17 +13,18 @@ class NotesController extends Controller
         
         $entityTable = \DB::table($entity . 's')->get(['id', 'name'])->where('id', '=', (int)$entityID)->first();        
 
-        //dd($entityTable->name);
+        //dd($entityTable);
         $notes = Note::where('systemID', app('system')->id)
                         ->where('entity', $entity)
                         ->where('entityID', $entityID)
                         ->get();
-        
+
+               
         return view('notes.index')->with('notes', $notes)
                                 ->with('entity', $entity)
                                 ->with('entityID', $entityID)
                                 ->with('entityName', $entityTable->name);
-    }
+    } // end index
 
     /**
     * create
@@ -55,18 +56,56 @@ class NotesController extends Controller
             'updated_at' => Carbon::now()->toDateTimeString(),
         ]);
 
-        $entityTable = \DB::table($request['entity'] . 's')->get(['id', 'name'])->where('id', '=', (int)$request['entityID'])->first();
+                
+        return redirect()->route('notes.index', [
+            'entity' => $request['entity'], 
+            'entityID' => $request['entityID']
+        ]);
 
-        //dd($entityTable->name);
-        $notes = Note::where('systemID', app('system')->id)
-                        ->where('entity', $request['entity'])
-                        ->where('entityID', $request['entityID'])
-                        ->get();
+    } // end store
+
+    public function edit($id) {
+       // dd($id);
+        $note = Note::find($id);
+        return view('notes.edit')->with('note', $note);
+
+    }
+
+    public function update(Request $request) 
+    {
+       //print_r($_POST); 
+       //dd($request->all()); 
+       //dd($request->hasFile('imageFile'));
+       // dd($request['imageFile']);
+        $note = Note::find($request['id']);
         
-        return view('notes.index')->with('notes', $notes)
-                                ->with('entity', $request['entity'])
-                                ->with('entityID', $request['entityID'])
-                                ->with('entityName', $entityTable->name);
+        $note->comments = $request['comments'];
+        $note->imageFileName = $request['imageFileName'];
+        
+        $note->updated_at = Carbon::now()->toDateTimeString();
+        $note->save();
+           
+        return redirect()->route('notes.index', [
+            'entity' => $request['entity'], 
+            'entityID' => $request['entityID']
+        ]);
+    }
+
+    /**
+     * Display a page to delete a new room
+     *
+     */
+    public function destroy($entity, $entityID, $id) 
+    {
+        
+        Note::destroy($id);
+
+        $note = Note::all();
+
+        return redirect()->route('notes.index', [
+            'entity' => $entity, 
+            'entityID' => $entityID
+        ]);
     }
     
 }
