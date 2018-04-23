@@ -19,7 +19,7 @@
 
                             <div class="col-md-6">
                                 {{-- <input id="comment" type="text" class="form-control{{ $errors->has('comment') ? ' is-invalid' : '' }}" name="comment" value="{{ old('comment') }}"> --}}
-                                <textarea id='noteTextarea' name="comments" rows='4' cols='55' maxlength='1056'></textarea>
+                                <textarea id='noteTextarea' name="comments" rows='4' cols='45' maxlength='1056'></textarea>
                                 @if ($errors->has('comments'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('comments') }}</strong>

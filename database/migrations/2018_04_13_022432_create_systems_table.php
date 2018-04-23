@@ -16,6 +16,7 @@ class CreateSystemsTable extends Migration
         Schema::create('systems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('imageFileName')->nullable();
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSystemIDToUserTable extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class AddSystemIDToUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function($table) {
+        Schema::create('notes', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('systemID');
+            $table->string('entity');
+            $table->integer('entityID');
+            $table->text('comments');
+            $table->string('imageFileName')->nullable();
+            $table->timestamps();            
         });
-    
     }
 
     /**
@@ -26,6 +31,6 @@ class AddSystemIDToUserTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('notes');
     }
 }

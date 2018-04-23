@@ -20,6 +20,7 @@ class CreatePlantsTable extends Migration
             $table->integer('planttypeID');
             $table->string('name');
             $table->string('comments')->nullable();
+            $table->string('imageFileName')->nullable();
             $table->timestamps();
         });
     }

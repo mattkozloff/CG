@@ -17,6 +17,18 @@ class UsersTableSeeder extends Seeder
             'email' => 'dave@dave.com',
             'imageFileName' => 'dave.jpg',
             'password' => bcrypt('davedave'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        DB::table('users')->insert([
+            'name' => 'Susan',
+            'systemID' => 2,
+            'email' => 'sue@sue.com',
+            'imageFileName' => 'sue.jpg',
+            'password' => bcrypt('suesue'),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
     }

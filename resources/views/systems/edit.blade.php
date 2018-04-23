@@ -27,6 +27,20 @@
                             </div>
                         </div> 
 
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} row">
+                            <label for="imageFileName" class="col-md-4 control-label">Image File Name</label>
+
+                            <div class="col-md-6">
+                                <input id="imageFileName" type="file" class="form-control" name="imageFileName" value='{{ $system->imageFileName }}' required autofocus>
+
+                                @if ($errors->has('imageFileName'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('imageFileName') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         
 
                         <div class="form-group">
