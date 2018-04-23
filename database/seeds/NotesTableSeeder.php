@@ -16,7 +16,7 @@ class NotesTableSeeder extends Seeder
             'entity' => 'plant',
             'entityID' => 1,
             'comments' => 'Initial planting - still small',
-            'imageFileName' => '/img/defailt.jpg',
+            'imageFileName' => 'img/default.png',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -25,7 +25,7 @@ class NotesTableSeeder extends Seeder
             'entity' => 'plant',
             'entityID' => 1,
             'comments' => 'growing stronger today  - could be due to nice eahther',
-            'imageFileName' => '/img/defailt.jpg',
+            'imageFileName' => 'img/default.png',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

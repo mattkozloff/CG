@@ -66,18 +66,20 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         //dd($data);
+    
         System::insert([
             'created_at' => now(),
+            'imageFileName' => "img/default.png",
             'name' => $data['gardenName'],
         ]);
 
         $lastID = DB::getPdo()->lastInsertId();
-
+ 
         return User::create([
             'systemID' => $lastID,
             'name' => $data['name'],
             'email' => $data['email'],
-            'imageFileName' => $data['imageFileName'],
+            'imageFileName' => "img/default.png",
             'password' => Hash::make($data['password']),
         ]);
     }

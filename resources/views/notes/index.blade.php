@@ -19,8 +19,8 @@
                         </tr>-->
                         @foreach($notes as $note)
                             <tr>
-                                <td>{{ $note['comments'] }}</td>
-                                <td>{{ $note['imageFileName'] }}</td>
+                                <td><img src='{{$note['imageFileName'] }}' style="width: 50px;  height: 50px" class="rounded"/></td>
+                                <td>{{ $note['comments'] }}</td>                                
                                 <td><a href='/note/edit/{{ $note['id'] }}'>Edit</a></td>
                                 <td><a class='delete' href='/note/{{$entity}}/{{$entityID}}/destroy/{{ $note['id'] }}'>Delete
                         @endforeach
