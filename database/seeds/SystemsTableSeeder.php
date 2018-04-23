@@ -14,7 +14,7 @@ class SystemsTableSeeder extends Seeder
         DB::table('systems')->insert([
             'id' => 1,
             'name' => 'Community Garden',
-            'imageFileName' => '/img/default.jpg',
+            'imageFileName' => 'img/default.png',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -22,7 +22,7 @@ class SystemsTableSeeder extends Seeder
         DB::table('systems')->insert([
             'id' => 2,
             'name' => 'Susan\'s Garden',
-            'imageFileName' => '/img/default.jpg',
+            'imageFileName' => 'uploads\system_2_2_bachorkids.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

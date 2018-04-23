@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card"> 
-                <div class="card-header">{{ __('Edit System') }}</div>
+                <div class="card-header">{{ __('Edit System') }}
+                
+                </div>
 
                 <div class="card-body">
                     <form class="form-horizontal" method="post" action="/systems/{{ $system->id }}" enctype="multipart/form-data">
@@ -31,7 +33,7 @@
                             <label for="imageFileName" class="col-md-4 control-label">Image File Name</label>
 
                             <div class="col-md-6">
-                                <input id="imageFileName" type="file" class="form-control" name="imageFileName" value='{{ $system->imageFileName }}' required autofocus>
+                                <input id="imageFileName" type="file" class="form-control" name="imageFileName" value='{{ $system->imageFileName }}' >
 
                                 @if ($errors->has('imageFileName'))
                                     <span class="help-block">
