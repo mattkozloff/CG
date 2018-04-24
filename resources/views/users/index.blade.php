@@ -16,6 +16,7 @@
                             <td>Name</td>
                             <td>email</td>
                             <td></td>
+                            <td></td>
                         </tr>
                         @foreach($users as $user)
                             <tr>
