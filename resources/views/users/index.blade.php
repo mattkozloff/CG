@@ -19,6 +19,7 @@
                         </tr>
                         @foreach($users as $user)
                             <tr>
+                                <td><img src="{{$user['imageFileName']}}" style="width: 35px; height: 35px" class="rounded"></td>
                                 <td>{{ $user['name'] }}</td>
                                 <td>{{ $user['email'] }}</td>
                                 <td><a href='/users/edit/{{ $user['id'] }}'>Edit</a></td>

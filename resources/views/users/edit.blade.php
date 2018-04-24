@@ -42,9 +42,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="imageFile" class="control-label col-sm-4">Image File Name:</label> 
+                            <label for="imageFileName" class="control-label col-sm-4">Image File Name:</label> 
                             <div class="col-sm-6">	
-                                <input class="form-control" type="text" id="imageFileName" name="imageFileName" placeholder="Image File Name">
+                                <input class="form-control" type="file" id="imageFileName" name="imageFileName" placeholder="Image File Name">
                             </div>
                           
                         </div>

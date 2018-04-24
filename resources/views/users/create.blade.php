@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Add User') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('users.store') }}">
+                    <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -43,7 +43,7 @@
                             <label for="imageFileName" class="col-md-4 col-form-label text-md-right">{{ __('Image File Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="imageFileName" type="text" class="form-control{{ $errors->has('imageFileName') ? ' is-invalid' : '' }}" name="imageFileName" value="{{ old('imageFileName') }}">
+                                <input id="imageFileName" type="file" class="form-control{{ $errors->has('imageFileName') ? ' is-invalid' : '' }}" name="imageFileName" value="{{ old('imageFileName') }}">
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">

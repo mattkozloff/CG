@@ -21,14 +21,27 @@ class UsersController extends Controller
 
     public function store(Request $request) 
     {
-        // dd($request->all());
+        //dd($request);
+        $filename = "";
+        if($request->hasFile('imageFileName')) {
+            $file = $request->file('imageFileName');
+            if($file) {
+                $destinationPath = public_path()  . '/uploads';
+                $filename = 'user' . '_' . app('system')->id . '_' . $request['id'] . '_' . $file->getClientOriginalName();
+                $file->move($destinationPath, $filename);  
+                $filename = '/uploads' . '\\' . $filename;
+                // $system->imageFileName = $filename;
+            }                
+        }
+
+
         $newUser = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'role' => $request['role'],
             'systemID' => app('system')->id, // from appServiceprovider
             'password' => bcrypt($request['password']),
-            'imageFileName' => $request['imageFileName'],
+            'imageFileName' => $filename,
             'created_at' => Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon::now()->toDateTimeString(),
         ]);
@@ -57,8 +70,18 @@ class UsersController extends Controller
         
             $user->name = $request['name'];
             $user->email = $request['email'];
-            $user->imageFileName = $request['imageFileName'];
             
+            if($request->hasFile('imageFileName')) {
+                $file = $request->file('imageFileName');
+                if($file) {
+                    $destinationPath = public_path()  . '/uploads';
+                    $filename = 'user' . '_' . app('system')->id . '_' . $request['id'] . '_' . $file->getClientOriginalName();
+                    $file->move($destinationPath, $filename);  
+                    $filename = '/uploads' . '\\' . $filename;
+                    $user->imageFileName = $filename;
+                }                
+            }
+                        
             $user->updated_at = Carbon::now()->toDateTimeString();
             $user->save();
             return redirect('users');

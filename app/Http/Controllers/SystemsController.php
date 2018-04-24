@@ -18,17 +18,17 @@ class SystemsController extends Controller
 
     public function update(Request $request) 
     {
-        //return($request->all());
+        //dd(public_path());
          $system = System::find($request['id']);
         
          $system->name = $request['name'];
          if($request->hasFile('imageFileName')) {
             $file = $request->file('imageFileName');
             if($file) {
-                $destinationPath = '/uploads';
+                $destinationPath = public_path()  . '/uploads';
                 $filename = 'system' . '_' . app('system')->id . '_' . $request['id'] . '_' . $file->getClientOriginalName();
                 $file->move($destinationPath, $filename);  
-                $filename = $destinationPath . '\\' . $filename;
+                $filename = '/uploads' . '\\' . $filename;
                 $system->imageFileName = $filename;
             }                
         }
