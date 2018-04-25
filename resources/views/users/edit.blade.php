@@ -5,16 +5,23 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-headed">Edit Room</div>
-
+                <div class="card-header">
+                    @if($user['imageFileName'] == null || $user['imageFileName'] == "")
+                        <img src="{{app('system')->imageFileName}}" style="width: 35px; height: 35px" class="rounded imgPopup">
+                    @else
+                        <img src="{{$user['imageFileName']}}" style="width: 35px; height: 35px" class="rounded imgPopup">
+                    @endif  
+                    {{ __('Edit User') }}
+                </div>
+        
                 <div class="card-body">
                     <form class="form-horizontal" method="post" action="/users/{{ $user->id }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <input value='{{ $user->id }}' type="hidden" id="id" name="id"> 					    
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                        <div class="row form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value='{{ $user->name }}' required autofocus>
@@ -27,8 +34,8 @@
                             </div>
                         </div> 
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                        <div class="row form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value='{{ $user->email }}' required>
@@ -41,15 +48,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="imageFileName" class="control-label col-sm-4">Image File Name:</label> 
+                        <div class="row form-group">
+                            <label for="imageFileName" class="col-md-4 col-form-label text-md-right">Image File Name:</label> 
                             <div class="col-sm-6">	
                                 <input class="form-control" type="file" id="imageFileName" name="imageFileName" placeholder="Image File Name">
                             </div>
                           
                         </div>
 
-                        <div class="form-group">
+                        <div class="row form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Edit
@@ -57,9 +64,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="row form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href='/users/destroy/{{ $user->id }}'>
+                                <a href='/users/destroy/{{ $user->id }}' class='delete'>
                                     Delete User
                                 </a>
                             </div>

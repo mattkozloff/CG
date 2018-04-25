@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Add Note') }} for {{ $entityDetail['entity'] }} {{ $entityDetail['entityName'] }} ID: {{ $entityDetail['entityID'] }}</div>
 
                 <div class="card-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('notes.store') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('notes.store')}}" enctype="multipart/form-data">
                         @csrf
 
                         <input value="{{$entityDetail['entity']}}" type="hidden" id="entity" name="entity"> 
@@ -32,7 +32,7 @@
                             <label for="imageFileName" class="col-md-4 col-form-label text-md-right">{{ __('Image File Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="imageFileName" type="text" class="form-control{{ $errors->has('imageFileName') ? ' is-invalid' : '' }}" name="imageFileName" value="{{ old('imageFileName') }}">
+                                <input id="imageFileName" type="file" class="form-control{{ $errors->has('imageFileName') ? ' is-invalid' : '' }}" name="imageFileName" value="{{ old('imageFileName') }}">
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">

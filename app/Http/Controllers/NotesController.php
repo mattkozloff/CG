@@ -45,20 +45,40 @@ class NotesController extends Controller
 
      public function store(Request $request) 
     {
-        
-
         //dd($request->all());
+
         $newNote = Note::create([
             'entity' => $request['entity'],
             'entityID' => (int)$request['entityID'],
             'comments' => $request['comments'],
-            'imageFileName' => app('system')->imageFileName,  //"$request['imageFileName']",
+            'imageFileName' => null,  //"$request['imageFileName']",
             'systemID' => app('system')->id, // from appServiceprovider
             'created_at' => Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon::now()->toDateTimeString(),
-        ]);
+        ])->id;
 
-                
+        if($request->hasFile('imageFileName')) {
+            $file = $request->file('imageFileName');
+            if($file) {
+                $destinationPath = public_path()  . '/uploads';
+                $filename = 'note' . '_' . app('system')->id . '_' . $newNote . '_' . $file->getClientOriginalName();
+                $file->move($destinationPath, $filename);  
+                $filename = '/uploads' . '\\' . $filename;
+
+                //  update the note with the images
+                $note = Note::find($newNote);
+                $note->imageFileName = $filename;
+                $note->save();   
+
+                if($request['entity'] == 'plant') {
+                    $plant = Plant::find($request['entityID']);
+                    $plant->imageFileName = $filename;
+                    $plant->save();
+
+                }
+            }                
+        }
+
         return redirect()->route('notes.index', [
             'entity' => $request['entity'], 
             'entityID' => $request['entityID']

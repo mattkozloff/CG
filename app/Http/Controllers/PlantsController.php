@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Room;
+use App\Note;
 use App\Plant;
 use App\PlantType;
 use Carbon\Carbon;
@@ -12,7 +13,7 @@ class PlantsController extends Controller
     public function index() {
         $plants = Plant::where('systemID', app('system')->id)->get();
         
-        return view('plants.index', compact('plants'));
+        return view('plants.index', compact('plants', 'lastNote'));
     }
 
     public function create() {
@@ -48,7 +49,7 @@ class PlantsController extends Controller
         $plant = Plant::find($id);
         $rooms = Room::where('systemID', app('system')->id)->get(['id', 'name']);
         $planttypes = PlantType::where('systemID', app('system')->id)->get(['id', 'name']);
-
+        
         return view('plants.edit', compact('plant', 'rooms', 'planttypes'));
 
         // $plant = Plant::find($id);

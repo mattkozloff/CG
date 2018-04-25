@@ -33,7 +33,7 @@
                             <label for="imageFileName" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="imageFileName" type="text" class="form-control" name="imageFileName" value='{{ $note->imageFileName }}' required autofocus>
+                                <input id="imageFileName" type="file" class="form-control" name="imageFileName" value='{{ $note->imageFileName }}'>
 
                                 @if ($errors->has('imageFileName'))
                                     <span class="help-block">

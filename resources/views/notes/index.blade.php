@@ -19,7 +19,13 @@
                         </tr>-->
                         @foreach($notes as $note)
                             <tr>
-                                <td><img src='{{$note['imageFileName'] }}' style="width: 50px;  height: 50px" class="rounded"/></td>
+                                <td>
+                                    @if($note['imageFileName'] == null || $note['imageFileName'] == "")
+                                        <img src="{{app('system')->imageFileName}}" style="width: 35px; height: 35px" class="rounded imgPopup">
+                                    @else
+                                        <img src="{{$note['imageFileName']}}" style="width: 35px; height: 35px" class="rounded imgPopup">
+                                    @endif
+                                </td>
                                 <td>{{ $note['comments'] }}</td>                                
                                 <td><a href='/note/edit/{{ $note['id'] }}'>Edit</a></td>
                                 <td><a class='delete' href='/note/{{$entity}}/{{$entityID}}/destroy/{{ $note['id'] }}'>Delete
