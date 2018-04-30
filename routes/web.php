@@ -55,6 +55,8 @@ Route::get('/plants/destroy/{id}', 'PlantsController@destroy')->name('plants.des
 Route::get('/systems/edit/{id}', 'SystemsController@edit')->name('systems.edit');
 Route::post('/systems/{id}', 'SystemsController@update')->name('systems.update');
 
+
+//notes
 Route::get('/notes/{entity}/{entityID}', 'NotesController@index')->name('notes.index');
 Route::get('/notes/{entity}/{entityID}/create', 'NotesController@create')->name('notes.create');
 Route::get('/note/edit/{id}', 'NotesController@edit')->name('note.edit'); // needed to call this note not notes - notes causes an issue

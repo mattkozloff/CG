@@ -29,6 +29,6 @@ class CreatePlantTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plany_types');
+        Schema::dropIfExists('plant_types');
     }
 }

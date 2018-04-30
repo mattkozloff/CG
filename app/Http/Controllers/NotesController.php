@@ -103,7 +103,8 @@ class NotesController extends Controller
        //dd($request->hasFile('imageFile'));
        // dd($request['imageFile']);
         $note = Note::find($request['id']);
-        
+       
+        $note->share = $request['share'];
         $note->comments = $request['comments'];
         $note->imageFileName = app('system')->imageFileName; //$request['imageFileName'];
         
