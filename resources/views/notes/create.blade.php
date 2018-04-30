@@ -41,6 +41,16 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="share" class="control-label col-sm-2">Share:<strong style="color:darkred;">*</strong></label>
+                            <div class="col-sm-10">	
+                                <select class="form-control" id="share" name="share">
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </select>
+                            </div>
+                        </div>
                     
 
                         <div class="form-group row mb-0">

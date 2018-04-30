@@ -13,19 +13,23 @@ class NotesTableSeeder extends Seeder
     {
         DB::table('notes')->insert([
             'systemID' => 2,
+            'userID' => 2,
             'entity' => 'plant',
             'entityID' => 1,
             'comments' => 'Initial planting - still small',
-            // 'imageFileName' => '/img/default.png',
+            'imageFileName' => '/img/default.png',
+            'share' => 'Yes',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
         DB::table('notes')->insert([
             'systemID' => 2,
+            'userID' => 2,
             'entity' => 'plant',
             'entityID' => 1,
             'comments' => 'growing stronger today  - could be due to nice eahther',
-            // 'imageFileName' => '/img/default.png',
+            'imageFileName' => '/img/default.png',
+            'share' => 'Yes',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

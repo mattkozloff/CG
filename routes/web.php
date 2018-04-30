@@ -62,3 +62,4 @@ Route::post('/notes/store', 'NotesController@store')->name('notes.store');
 Route::post('/notes/{id}', 'NotesController@update')->name('notes.update');
 Route::get('/note/{entity}/{entityID}/destroy/{id}', 'NotesController@destroy')->name('note.destroy');
 
+Route::get('/community', 'CommunityController@index')->name('community.index');

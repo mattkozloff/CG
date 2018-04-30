@@ -5,8 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card"> 
-                <div class="card-header">{{ __('Edit Plant') }}</div>
-
+                <div class="card-header">
+                    <img src='{{$plant->imageFileName}}' style="width: 50px;  height: 50px" class="rounded imgPopup"/>
+                    {{ __('Edit Plant') }}
+                </div>
                 <div class="card-body">
                     <form class="form-horizontal" method="post" action="/plants/{{ $plant->id }}" enctype="multipart/form-data">
                         {{ csrf_field() }}

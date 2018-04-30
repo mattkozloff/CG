@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Plant;
 use App\Note;
+use Auth;
 
 class NotesController extends Controller
 {
@@ -50,7 +51,9 @@ class NotesController extends Controller
         $newNote = Note::create([
             'entity' => $request['entity'],
             'entityID' => (int)$request['entityID'],
+            'userID' => Auth::user()->id,
             'comments' => $request['comments'],
+            'share' => $request['share'],
             'imageFileName' => null,  //"$request['imageFileName']",
             'systemID' => app('system')->id, // from appServiceprovider
             'created_at' => Carbon::now()->toDateTimeString(),

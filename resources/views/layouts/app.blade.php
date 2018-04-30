@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('styles') 
+
 </head>
 <body>
     <div id="app">
@@ -45,6 +47,7 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                        <li><a class="nav-link" href="/community">{{ __('Community') }}</a></li>
                         <li><a class="nav-link" href="/plants">{{ __('Plants') }}</a></li>
                         <li><a class="nav-link" href="/planttypes">{{ __('Plant Types') }}</a></li>
                         <li><a class="nav-link" href="/rooms">{{ __('Rooms') }}</a></li>

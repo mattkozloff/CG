@@ -27,6 +27,13 @@
                                     @endif
                                 </td>
                                 <td>{{ $note['comments'] }}</td>                                
+                                <td>
+                                    @if($note['share'] == 'Yes')
+                                        Shared
+                                    @else
+                                        Not Shared
+                                    @endif    
+                                </td>                                
                                 <td><a href='/note/edit/{{ $note['id'] }}'>Edit</a></td>
                                 <td><a class='delete' href='/note/{{$entity}}/{{$entityID}}/destroy/{{ $note['id'] }}'>Delete
                         @endforeach
