@@ -14,6 +14,7 @@
         <style>
             html, body {
                 background-color: #fff;
+                
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
