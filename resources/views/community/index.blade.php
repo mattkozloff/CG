@@ -21,7 +21,7 @@
                     <?php $noteCounter = 0 ?>
 
                     @foreach($notes as $note)
-                        <table class="table table-bordered">
+                        <table class="table table-striped table-hover">
                             <tr>
                                 <td><img class="communityNoteUserImage img-circle" src="{{$note->userImageFileName}}" />
                                     {{ $note->userName}}

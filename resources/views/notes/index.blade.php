@@ -11,7 +11,7 @@
                 </div> 
 
                 <div class="card-body">
-                    <table class="table" border='1'>
+                    <table class="table table-striped table-hover">
                         <!--<tr>
                             <td>Note</td>
                             <td></td>
