@@ -22,7 +22,7 @@ class PlantsController extends Controller
         $planters = Planter::where('systemID', app('system')->id)->get(['id', 'name']);
         $planttypes = PlantType::where('systemID', app('system')->id)->get(['id', 'name']);
 
-        return view('plants.create', compact('plants', 'rooms', 'planttypes'));
+        return view('plants.create', compact('plants', 'rooms', 'planttypes', 'planters'));
     }
 
     public function store(Request $request) 
@@ -35,7 +35,7 @@ class PlantsController extends Controller
             'imageFileName' => app('system')->imageFileName, // from appServiceprovider
             'planttypeID' => $request['planttype'],
             'roomID' => $request['room'],
-            'planterID' => $request['planter'],
+            'planterID' => $request['planterID'],
             'created_at' => Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon::now()->toDateTimeString(),
         ]);
@@ -53,7 +53,7 @@ class PlantsController extends Controller
         $plant = Plant::find($id);
         $rooms = Room::where('systemID', app('system')->id)->get(['id', 'name']);
         $planttypes = PlantType::where('systemID', app('system')->id)->get(['id', 'name']);
-        
+        $planters = Planter::where('systemID', app('system')->id)->get(['id', 'name']);
         return view('plants.edit', compact('plant', 'rooms', 'planttypes'));
 
         // $plant = Plant::find($id);

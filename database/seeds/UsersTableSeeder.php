@@ -22,11 +22,11 @@ class UsersTableSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
-            'name' => 'Susan',
+            'name' => 'Matt',
             'systemID' => 2,
-            'email' => 'sue@sue.com',
+            'email' => 'matt@matt.com',
             'imageFileName' => '/img/default.png',
-            'password' => bcrypt('suesue'),
+            'password' => bcrypt('matthew'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

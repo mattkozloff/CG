@@ -21,7 +21,7 @@ class SystemsTableSeeder extends Seeder
 
         DB::table('systems')->insert([
             'id' => 2,
-            'name' => 'Susan\'s Garden',
+            'name' => 'Matt\'s Test Garden' ,
             'imageFileName' => '/img/default.png',
             'created_at' => now(),
             'updated_at' => now(),
