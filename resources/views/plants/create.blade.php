@@ -42,7 +42,7 @@
                             <label for="room" class="col-md-4 col-form-label text-md-right">{{ __('Planter') }}</label>
 
                             <div class="col-sm-6">	
-                                    <select class="form-control" name="room" id="room">
+                                    <select class="form-control" name="planter" id="planter">
                                         <option value="">Select Planter</option>
                                         @foreach($planters as $planter)
                                             <option value="{{$planter->id}}">{{$planter->name}}</option>

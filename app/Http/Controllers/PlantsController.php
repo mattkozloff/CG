@@ -34,8 +34,8 @@ class PlantsController extends Controller
             'systemID' => app('system')->id, // from appServiceprovider
             'imageFileName' => app('system')->imageFileName, // from appServiceprovider
             'planttypeID' => $request['planttype'],
+            'planterID' => $request['planter'],
             'roomID' => $request['room'],
-            'planterID' => $request['planterID'],
             'created_at' => Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon::now()->toDateTimeString(),
         ]);
