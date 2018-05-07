@@ -5,6 +5,7 @@ use App\Room;
 use App\Note;
 use App\Plant;
 use App\PlantType;
+use App\Planter;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,7 @@ class PlantsController extends Controller
 
     public function create() {
         $rooms = Room::where('systemID', app('system')->id)->get(['id', 'name']);
+        $planters = Planter::where('systemID', app('system')->id)->get(['id', 'name']);
         $planttypes = PlantType::where('systemID', app('system')->id)->get(['id', 'name']);
 
         return view('plants.create', compact('plants', 'rooms', 'planttypes'));
@@ -33,6 +35,7 @@ class PlantsController extends Controller
             'imageFileName' => app('system')->imageFileName, // from appServiceprovider
             'planttypeID' => $request['planttype'],
             'roomID' => $request['room'],
+            'planterID' => $request['planter'],
             'created_at' => Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon::now()->toDateTimeString(),
         ]);

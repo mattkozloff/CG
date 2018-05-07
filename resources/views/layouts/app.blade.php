@@ -47,13 +47,25 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                        <li><a class="nav-link" href="/home">{{ __('Home') }}</a></li>
                         <li><a class="nav-link" href="/community">{{ __('Community') }}</a></li>
                         <li><a class="nav-link" href="/plants">{{ __('Plants') }}</a></li>
-                        <li><a class="nav-link" href="/planttypes">{{ __('Plant Types') }}</a></li>
-                        <li><a class="nav-link" href="/rooms">{{ __('Rooms') }}</a></li>
-                        <li><a class="nav-link" href="/users">{{ __('Users') }}</a></li>
-                        <li><a class="nav-link" href="/systems/edit/{{ app('system')->id }}">{{ __('System') }}</a></li>
+                        <li><a class="nav-link" href="/users">{{ __('Users') }}</a></li> 
                         <li><a class="nav-link" href="/about">{{ __('About') }}</a></li>
+                            <li><a class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('System') }} <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/planttypes">{{ __('Plant Types') }} </a>
+                                    <a class="dropdown-item" href="/rooms">{{ __('Rooms') }}</a>
+                                    <a class="dropdown-item" href="/planter">{{ __('Planters') }}</a>
+                                    <a class="dropdown-item" href="/systems/edit/{{ app('system')->id }}">{{ __('System') }}</a>
+                                   
+                                </div>
+                            </a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

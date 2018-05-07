@@ -39,6 +39,19 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="room" class="col-md-4 col-form-label text-md-right">{{ __('Planter') }}</label>
+
+                            <div class="col-sm-6">	
+                                    <select class="form-control" name="room" id="room">
+                                        <option value="">Select Planter</option>
+                                        @foreach($planters as $planter)
+                                            <option value="{{$planter->id}}">{{$planter->name}}</option>
+                                        @endforeach
+                                    </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="planttype" class="col-md-4 col-form-label text-md-right">{{ __('Plant Type') }}</label>
 
                             <div class="col-sm-6">	
