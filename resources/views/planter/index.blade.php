@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Plant Types <br />
-                    <a href='/planttypes/create'>Add Plant Type</a>
+                    Planter <br />
+                    <a href='/planter/create'>Add Planter</a>
                 </div>
 
                 <div class="card-body">
@@ -17,11 +17,11 @@
                             <td>Comments</td>
                             <td></td>
                         </tr>
-                        @foreach($planttypes as $planttype)
+                        @foreach($planter as $planter)
                             <tr>
-                                <td>{{ $planttype['name'] }}</td>
-                                <td>{{ $planttype['comments'] }}</td>
-                                <td><a href='/planttypes/edit/{{ $planttype['id'] }}'>Edit</a></td>
+                                <td>{{ $planter['name'] }}</td>
+                                <td>{{ $planter['comments'] }}</td>
+                                <td><a href='/planter/edit/{{ $planter['id'] }}'>Edit</a></td>
                             </tr>
                         @endforeach
                     </table>
