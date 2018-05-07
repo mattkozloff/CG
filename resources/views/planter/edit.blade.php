@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card"> 
                 <div class="card-header">{{ __('Edit Planter') }}</div>
 
                 <div class="card-body">
-                    <form class="form-horizontal" method="post" action="/planter/{{ $plantere->id }}" enctype="multipart/form-data">
+                    <form class="form-horizontal" method="post" action="/planter/{{ $planter->id }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <input value='{{ $planter->id }}' type="hidden" id="id" name="id"> 					    
@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href='/planttypes/destroy/{{ $planter->id }}'>
+                                <a href='/planter/destroy/{{ $planter->id }}'>
                                     Delete planter
                                 </a>
                             </div>

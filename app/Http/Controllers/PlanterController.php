@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Planter;
+use App\System;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -41,7 +42,7 @@ class PlanterController extends Controller
     public function edit($id) 
     {
         $planter = planter::find($id);
-        return view('planter.edit')->with('planter', $planttype);
+        return view('planter.edit')->with('planter', $planter);
     }
 
     public function update(Request $request) 
@@ -56,8 +57,8 @@ class PlanterController extends Controller
             $planter->comments = $request['comments'];
             
             $planter->updated_at = Carbon::now()->toDateTimeString();
-            $planer->save();
-            return redirect('planttypes');
+            $planter->save();
+            return redirect('planter');
     }
 
     /**

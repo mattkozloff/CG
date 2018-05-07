@@ -68,3 +68,8 @@ Route::get('/community', 'CommunityController@index')->name('community.index');
 
 //planter
 Route::get('/planter', 'PlanterController@index')->name('planter.index');
+Route::get('/planter/create', 'PlanterController@create')->name('planter.create');
+Route::post('/planter/store', 'PlanterController@store')->name('planter.store');
+Route::get('/planter/edit/{id}', 'PlanterController@edit')->name('planter.edit');
+Route::post('/planter/{id}', 'PlanterController@update')->name('planter.update');
+Route::get('/planter/destroy/{id}', 'PlanterController@destroy')->name('planter.destroy');
