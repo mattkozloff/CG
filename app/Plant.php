@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Plant extends Model
 {
     protected $fillable = [
-        'name', 'comments', 'systemID', 'planttypeID', 'planterID', 'roomID', 'imageFileName'
+        'name', 'comments', 'systemID', 'planttypeID', 'planterID', 'soiltypeID', 'roomID', 'imageFileName'
     ];
 }

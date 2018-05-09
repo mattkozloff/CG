@@ -22,8 +22,9 @@ class PlantsController extends Controller
         $rooms = Room::where('systemID', app('system')->id)->get(['id', 'name']);
         $planters = Planter::where('systemID', app('system')->id)->get(['id', 'name']);
         $planttypes = PlantType::where('systemID', app('system')->id)->get(['id', 'name']);
+        $soiltypes = SoilType::where('systemID', app('system')->id)->get(['id', 'name']); 
 
-        return view('plants.create', compact('plants', 'rooms', 'planttypes', 'planters'));
+        return view('plants.create', compact('plants', 'rooms', 'planttypes', 'planters', 'soiltypes'));
     }
 
     public function store(Request $request) 
@@ -36,6 +37,7 @@ class PlantsController extends Controller
             'imageFileName' => app('system')->imageFileName, // from appServiceprovider
             'planttypeID' => $request['planttype'],
             'planterID' => $request['planter'],
+            'soiltypeID' => $request['soiltype'],
             'roomID' => $request['room'],
             'created_at' => Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon::now()->toDateTimeString(),
@@ -55,7 +57,8 @@ class PlantsController extends Controller
         $rooms = Room::where('systemID', app('system')->id)->get(['id', 'name']);
         $planttypes = PlantType::where('systemID', app('system')->id)->get(['id', 'name']);
         $planters = Planter::where('systemID', app('system')->id)->get(['id', 'name']);
-        return view('plants.edit', compact('plant', 'rooms', 'planttypes'));
+        $soiltypes = SoilType::where('systemID', app('system')->id)->get(['id', 'name']);
+        return view('plants.edit', compact('plant', 'rooms', 'planttypes', 'soiltypes'));
 
         // $plant = Plant::find($id);
         // return view('plants.edit')->with('plant', $plant);

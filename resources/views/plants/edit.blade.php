@@ -37,7 +37,7 @@
                                         <option value="">Select Room</option>
                                         @foreach($rooms as $room)
                                             @if($room->id == $plant->roomID)
-                                            <option value="{{$room->id}}">{{$room->name}}</option>
+                                           
                                                 <option value="{{$room->id}}" selected>{{$room->name}}</option>
                                             @else
                                                 <option value="{{$room->id}}">{{$room->name}}</option>
@@ -55,11 +55,29 @@
                                         <option value="">Select Plant Type</option>
                                         @foreach($planttypes as $planttype)
                                             @if($planttype->id == $plant->planttypeID)
-                                            <option value="{{$planttype->id}}">{{$planttype->name}}</option>
+                                            
                                                 <option value="{{$planttype->id}}" selected>{{$planttype->name}}</option>
                                             @else
                                                 <option value="{{$planttype->id}}">{{$planttype->name}}</option>
                                             @endif
+                                        @endforeach
+                                    </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="soilType" class="col-md-4 col-form-label text-md-right">{{ __('Soil Type') }}</label>
+
+                            <div class="col-sm-6">	
+                                    <select class="form-control" name="soiltype" id="soiltype">
+                                        <option value="">Select Soil Type</option>
+                                        @foreach($soiltypes as $soiltype)
+                                            @if($soiltype->id == $plant->soiltypeID)
+                                                
+                                                    <option value="{{$soiltype->id}}" selected>{{$soiltype->name}}</option>
+                                                @else
+                                                    <option value="{{$soiltype->id}}">{{$soiltype->name}}</option>
+                                                    @endif
                                         @endforeach
                                     </select>
                             </div>
