@@ -73,3 +73,11 @@ Route::post('/planter/store', 'PlanterController@store')->name('planter.store');
 Route::get('/planter/edit/{id}', 'PlanterController@edit')->name('planter.edit');
 Route::post('/planter/{id}', 'PlanterController@update')->name('planter.update');
 Route::get('/planter/destroy/{id}', 'PlanterController@destroy')->name('planter.destroy');
+
+//soil
+Route::get('/soilType', 'SoilTypeController@index')->name('soilType.index');
+Route::get('/soilType/create', 'SoilTypeController@create')->name('soilType.create');
+Route::post('/soilType/store', 'SoilTypeController@store')->name('soilType.store');
+Route::get('/soilType/edit/{id}', 'SoilTypeController@edit')->name('soilType.edit');
+Route::post('/soilType/{id}', 'SoilTypeController@update')->name('soilType.update');
+Route::get('/soilType/destroy/{id}', 'SoilTypeController@destroy')->name('soilType.destroy');
