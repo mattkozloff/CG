@@ -58,7 +58,7 @@ class SoilTypeController extends Controller
             
             $soilType->updated_at = Carbon::now()->toDateTimeString();
             $soilType->save();
-            return redirect('planter');
+            return redirect('soilType');
     }
 
     /**
