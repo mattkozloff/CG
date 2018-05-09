@@ -6,6 +6,7 @@ use App\Note;
 use App\Plant;
 use App\PlantType;
 use App\Planter;
+use App\SoilType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
