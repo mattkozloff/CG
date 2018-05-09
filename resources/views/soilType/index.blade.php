@@ -6,22 +6,22 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    Plant Types <br />
-                    <a href='/planttypes/create'>Add Plant Type</a>
+                    Soil Type <br />
+                    <a href='/rooms/create'>Add Soil Type</a>
                 </div>
 
                 <div class="card-body">
-                    <table class="table" border='1'>
+                    <table class="table table-striped table-hover">
                         <tr>
                             <td>Name</td>
                             <td>Comments</td>
                             <td></td>
                         </tr>
-                        @foreach($planttypes as $planttype)
+                        @foreach($soilType as $soilType)
                             <tr>
-                                <td>{{ $planttype['name'] }}</td>
-                                <td>{{ $planttype['comments'] }}</td>
-                                <td><a href='/planttypes/edit/{{ $planttype['id'] }}'>Edit</a></td>
+                                <td>{{ $soilType['name'] }}</td>
+                                <td>{{ $soilType['comments'] }}</td>
+                                <td><a href='/soilType/edit/{{ $room['id'] }}'>Edit</a></td>
                             </tr>
                         @endforeach
                     </table>

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SoilTypeTableSeeder extends Seeder
+class SoilTypesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,14 +11,14 @@ class SoilTypeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('soil_type')->insert([
+        DB::table('soil_types')->insert([
             'name' => 'mulch',
             'systemID' => 2,
             'comments' => 'not really soil, but you get it at the garden place',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        DB::table('soil_type')->insert([
+        DB::table('soil_types')->insert([
             'name' => 'Miracle-Gro Premium Potting Mix 8qt',
             'systemID' => 2,
             'comments' => 'It\s a miracle',

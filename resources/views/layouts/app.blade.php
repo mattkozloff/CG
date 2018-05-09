@@ -61,7 +61,7 @@
                                     <a class="dropdown-item" href="/rooms">{{ __('Rooms') }}</a>
                                     <a class="dropdown-item" href="/planter">{{ __('Planters') }}</a>
                                     <a class="dropdown-item" href="/systems/edit/{{ app('system')->id }}">{{ __('System') }}</a>
-                                   
+                                    <a class="dropdown-item" href="/soilType">{{ __('Soil Type') }}</a>
                                 </div>
                             </a>
                             </li>
